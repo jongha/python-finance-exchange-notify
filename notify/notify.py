@@ -34,8 +34,8 @@ class Notify(object):
     msg['From'] = self.username
     msg['To'] = recipient
 
-    part1 = MIMEText(content, 'plain')
-    part2 = MIMEText(content, 'html')
+    part1 = MIMEText(content, 'plain', 'utf-8')
+    part2 = MIMEText(content, 'html', 'utf-8')
     msg.attach(part1)
     msg.attach(part2)
 

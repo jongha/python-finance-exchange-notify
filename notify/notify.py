@@ -44,4 +44,4 @@ class Notify(object):
     finally:
         conn.close()
 
-    print 'mail sending...'
+    print 'Sending...'

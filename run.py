@@ -5,6 +5,7 @@ import sys
 import codecs
 import re
 import HTMLParser
+import time
 
 from notify.notify import Notify
 
@@ -12,48 +13,48 @@ template = '''
 <table style="border: 1px solid black; border-collapse: collapse;">
   <thead>
 		<tr>
-			<th rowspan="2" style="border: 1px solid black; padding: 2px;">날짜</th>
-			<th rowspan="2" style="border: 1px solid black; padding: 2px;">통화명</th>
-			<th rowspan="2" style="border: 1px solid black; padding: 2px;">매매기준표</th>
-			<th colspan="2" style="border: 1px solid black; padding: 2px;">송금전신환</th>
+			<th rowspan="2" style="border: 1px solid black; padding: 10px;">조회일시</th>
+			<th rowspan="2" style="border: 1px solid black; padding: 10px;">통화명</th>
+			<th rowspan="2" style="border: 1px solid black; padding: 10px;">매매기준표</th>
+			<th colspan="2" style="border: 1px solid black; padding: 10px;">송금전신환</th>
 		</tr>
 		<tr>
-			<th style="border: 1px solid black; padding: 2px;">보내실 때</th>
-			<th style="border: 1px solid black; padding: 2px;">받으실 때</th>
+			<th style="border: 1px solid black; padding: 10px;">보내실 때</th>
+			<th style="border: 1px solid black; padding: 10px;">받으실 때</th>
 		</tr>
   </thead>
 
 	<tbody>
 		<tr>
-			<td rowspan="5" style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td rowspan="5" style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
 		</tr>
 		<tr>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
 		</tr>
 		<tr>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
 		</tr>
 		<tr>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
 		</tr>
 		<tr>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
-			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
+			<td style="border: 1px solid black; padding: 10px;">%s</td>
 		</tr>
 	</tbody>
 </table>
@@ -90,21 +91,23 @@ def run(file):
     data.append(exchange[0][2].encode('utf-8'))
 
   try:
-      n = Notify(
-          username='',
-          password='',
-          server='smtp.works.naver.com'
-          )
+    n = Notify(
+      username='',
+      password='',
+      server='smtp.works.naver.com'
+      )
 
-      n.sendmail(
-        subject='Daily exchange rate info.',
-        content=template % tuple(data),
-        recipient='jongha.ahn@mrlatte.net'
-        );
-      exit(1)
+    n.sendmail(
+      subject=time.strftime('[Daily] %Y년 %m월 %d일 환율입니다.'),
+      content=template % tuple(data),
+      recipient='jongha.ahn@mrlatte.net'
+      )
+
+    exit(1)
 
   except:
-      exit(0)
+    exit(0)
 
 if __name__ == '__main__':
-  run(sys.argv[1])
+  if len(sys.argv) > 1:
+    run(sys.argv[1])

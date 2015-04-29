@@ -40,8 +40,9 @@ class Notify(object):
     msg.attach(part2)
 
     try:
-        conn.sendmail(self.username, recipient, msg.as_string())
+      conn.sendmail(self.username, recipient, msg.as_string())
+
     finally:
-        conn.close()
+      conn.close()
 
     print 'Sending...'

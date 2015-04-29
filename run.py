@@ -12,48 +12,48 @@ template = '''
 <table style="border: 1px solid black; border-collapse: collapse;">
   <thead>
 		<tr>
-			<th rowspan="2" style="border: 1px solid black">날짜</th>
-			<th rowspan="2" style="border: 1px solid black">통화명</th>
-			<th rowspan="2" style="border: 1px solid black">매매기준표</th>
-			<th colspan="2" style="border: 1px solid black">송금전신환</th>
+			<th rowspan="2" style="border: 1px solid black; padding: 2px;">날짜</th>
+			<th rowspan="2" style="border: 1px solid black; padding: 2px;">통화명</th>
+			<th rowspan="2" style="border: 1px solid black; padding: 2px;">매매기준표</th>
+			<th colspan="2" style="border: 1px solid black; padding: 2px;">송금전신환</th>
 		</tr>
 		<tr>
-			<th style="border: 1px solid black">보내실 때</th>
-			<th style="border: 1px solid black">받으실 때</th>
+			<th style="border: 1px solid black; padding: 2px;">보내실 때</th>
+			<th style="border: 1px solid black; padding: 2px;">받으실 때</th>
 		</tr>
   </thead>
 
 	<tbody>
 		<tr>
-			<td rowspan="5" style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
+			<td rowspan="5" style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
 		</tr>
 		<tr>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
 		</tr>
 		<tr>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
 		</tr>
 		<tr>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
 		</tr>
 		<tr>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
-			<td style="border: 1px solid black">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
+			<td style="border: 1px solid black; padding: 2px;">%s</td>
 		</tr>
 	</tbody>
 </table>
